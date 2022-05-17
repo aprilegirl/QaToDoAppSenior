@@ -7,16 +7,17 @@
         name="newToDo"
         autocomplete="off"
     >
-    <button>Add ToDo</button>
+    <button data-testid="toDoButton">Add ToDo</button>
   </form>
   <h2>ToDo List</h2>
   <ul>
-    <li
+    <li data-testid="toDoItem"
+        :data-id="ToDo.id"
         v-for="ToDo in ToDos"
         :key="ToDo.id"
     >
       {{ ToDo.text }}
-      <button @click="removeToDo(ToDo.id)">Remove</button>
+      <button @click="removeToDo(ToDo.id)" data-testid="removeButton">Remove</button>
     </li>
   </ul>
   <h4 v-if="ToDos.length === 0">Empty list.</h4>
